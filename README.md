@@ -1,2 +1,2 @@
-# hybrid-filter
+# Hybrid recommendation filter
 Hybrid recommendation filter that combine text mining content-filtering and collaborative filtering to predict the top-N documents that are of most interest for each user. The content-based filter clusters notifications to find content with topics for which the user has shown interest. The collaborative filter increase diversity by discovering new topics of interest for the user, because they are of the interest of other users with similar concerns.
