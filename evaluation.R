@@ -27,7 +27,7 @@ TopNRecommendation <-function(user_id, n, dum_predict) {
 Evaluate <- function(dum_n, dum_predict) {
   # Measure performance for all the users
   tp <- tn <- fp <- fn <- 0
-  min_user_rated_docs <- 1
+  min_user_rated_docs <- 2
   n_docs <- ncol(dum_n)
   all_docs <-1:n_docs
   for (user_id in rownames(dum_n)) {
@@ -85,7 +85,7 @@ for (x_date in x_dates) {
   dum <- ComputeDUM(x_indicators_df)
   # Obtain the TUM
   tum <- ComputeTUM(dum,dtm)
-  # Compute the normaluzed DUM and DUMpredict
+  # Compute the normalized DUM and DUMpredict
   dum_n <- t(NormalizeDUM(dum))
   dum_predict <- NormalizedDUMpredict(tum,dtm)
   # Evaluate
@@ -101,6 +101,6 @@ ggplot(evaluation_df) +
   geom_line(aes(x = day, y = precision, color = 'Precision'), size = 2) +
   geom_line(aes(x = day, y = recall, color = 'Recall'), size = 2) +
   scale_color_discrete(name = 'Measures', labels = c('Accuracy', 'Precision', 'Recall')) +
-  labs(x = 'Days', y= 'Scores') 
+  labs(x = 'Days', y= 'Scores') + expand_limits(y = 0)
 
 
