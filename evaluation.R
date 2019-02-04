@@ -24,10 +24,9 @@ TopNRecommendation <-function(user_id, n, dum_predict) {
   return (top_n)
 }
 
-Evaluate <- function(dum_n, dum_predict) {
+Evaluate <- function(dum_n, dum_predict, min_user_rated_docs = 2) {
   # Measure performance for all the users
   tp <- tn <- fp <- fn <- 0
-  min_user_rated_docs <- 2
   n_docs <- ncol(dum_n)
   all_docs <-1:n_docs
   for (user_id in rownames(dum_n)) {
